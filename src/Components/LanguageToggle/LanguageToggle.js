@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Popover, List, ListItem, ListItemText } from "@material-ui/core";
-import { German, English } from "./Flags";
+import { German, English } from "./Flags/Flags";
 
 const LANGUAGES = [
   { id: "en", title: "English" },
