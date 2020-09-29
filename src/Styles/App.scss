@@ -1,5 +1,19 @@
-@import 'variables';
+@import "variables";
 
 .App {
   background-color: $contrast-text;
+  &__ {
+    &Header {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    &ImageHolder {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    &Button {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
 }

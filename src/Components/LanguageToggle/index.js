@@ -1,20 +1,20 @@
-import React, { useState, useRef } from 'react';
-import { Popover, List, ListItem, ListItemText } from '@material-ui/core';
-import { German, English } from './Flags';
+import React, { useState, useRef } from "react";
+import { Popover, List, ListItem, ListItemText } from "@material-ui/core";
+import { German, English } from "./Flags";
 
 const LANGUAGES = [
-  { id: 'en', title: 'English' },
-  { id: 'de', title: 'Deutsch' }
+  { id: "en", title: "English" },
+  { id: "de", title: "Deutsch" },
 ];
 
 const ANCHOR_ORIGIN = {
-  vertical: 'bottom',
-  horizontal: 'right'
+  vertical: "bottom",
+  horizontal: "right",
 };
 
 const TRANSFORM_ORIGIN = {
-  vertical: 'top',
-  horizontal: 'right'
+  vertical: "top",
+  horizontal: "right",
 };
 
 const LanguageToggle = ({ language, setlanguage }) => {
@@ -26,7 +26,7 @@ const LanguageToggle = ({ language, setlanguage }) => {
 
   const closePopover = () => setopen(false);
 
-  const handleClick = id => () => {
+  const handleClick = (id) => () => {
     setlanguage(id);
     closePopover();
   };
@@ -34,8 +34,8 @@ const LanguageToggle = ({ language, setlanguage }) => {
   return (
     <>
       <div onClick={openPopover} ref={anchorEl}>
-        {language === 'de' && <German />}
-        {language === 'en' && <English />}
+        {language === "de" && <German />}
+        {language === "en" && <English />}
       </div>
 
       <Popover

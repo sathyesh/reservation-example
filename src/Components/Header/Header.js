@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import LanguageToggle from "../LanguageToggle";
 import "./Header.scss";
 
-function Header() {    
-  const [language, setLanguage]= useState('en');
+function Header() {
+  const [language, setLanguage] = useState("en");
   return (
     <div>
       <header className="AppHeader">
@@ -19,7 +19,7 @@ function Header() {
           />
         </a>
         <div className="AppHeader__languageToggle">
-          <LanguageToggle language={language} setlanguage={setLanguage}/>
+          <LanguageToggle language={language} setlanguage={setLanguage} />
         </div>
       </header>
     </div>
