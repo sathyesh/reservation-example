@@ -1,7 +1,8 @@
 @import "variables";
 
 .App {
-  background-color: $contrast-text;
+  display: flex;
+  flex-direction: column;
   &__ {
     &Header {
       padding-top: 1rem;
@@ -14,6 +15,12 @@
     &Button {
       margin-top: 1rem;
       margin-bottom: 1rem;
+    }
+    &Footer {
+      flex-grow: 1;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      margin: auto;
     }
   }
 }

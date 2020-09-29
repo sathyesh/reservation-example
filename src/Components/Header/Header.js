@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LanguageToggle from "../LanguageToggle";
+import LanguageToggle from "../LanguageToggle/LanguageToggle";
 import "./Header.scss";
 
 function Header() {

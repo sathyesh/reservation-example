@@ -1,11 +1,12 @@
 import React from "react";
 import "./Styles/App.scss";
 import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
 import ImageHolder from "./Components/ImageHolder/ImageHolder";
+
 import {
   Container,
   Typography,
-  CssBaseline,
   Grid,
   Button,
 } from "@material-ui/core";
@@ -15,10 +16,10 @@ function App() {
 
   return (
     <>
-      <CssBaseline />
-      <Container className="App" maxWidth="xs">
+      <Container  maxWidth="xs">
         <Typography
           component="div"
+          className="App"
           style={{ backgroundColor: "#fff", height: "100vh" }}
         >
           <div className="App__Header">
@@ -93,6 +94,9 @@ function App() {
                 </Button>
               </Grid>
             </Grid>
+          </div>
+          <div className="App__Footer">
+            <Footer />
           </div>
         </Typography>
       </Container>

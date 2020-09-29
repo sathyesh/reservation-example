@@ -1,0 +1,15 @@
+@import "../../Styles/variables";
+
+$header-logo-default-height: 45px;
+
+.AppFooter {
+  &__ {
+    &logo {
+      width: auto;
+      height: $header-logo-default-height;
+    }
+    &languageToggle {
+      margin-left: auto;
+    }
+  }
+}
