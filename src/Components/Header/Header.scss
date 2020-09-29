@@ -1,0 +1,20 @@
+@import '../../Styles/variables';
+
+$header-logo-default-height: 45px;
+
+.AppHeader {
+    display: flex;
+    align-items: center;
+    padding: $default-padding-size;
+    &__{
+      &logo {
+        width: auto;
+        height: $header-logo-default-height; 
+      }
+      &languageToggle {
+        margin-left: auto;
+      }
+    }
+}
+
+  

@@ -4,10 +4,17 @@ import './index.css';
 import App from './App';
 // import * as serviceWorker from './serviceWorker';
 
+/* 
+React.StrictMode is commented because of issues in Material UI library
+Please refer https://github.com/mui-org/material-ui/issues/13394 
+TOD0: Once the issue is solved, we can uncomment the StrictMode
+To know more about strict mode: 
+https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage
+*/
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+    <App />,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 
