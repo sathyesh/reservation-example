@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import "./ImageHolder.scss";
 
 function ImageHolder({src}) {
     
     return (
-        <>
-         <img src={src} alt="Restaturant"></img>
-        </>
+        <div className="image-holder">
+         <img className="image-holder__img" src={src} alt="Restaturant"></img>
+        </div>
     )
 }
 
