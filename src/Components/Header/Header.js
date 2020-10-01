@@ -2,19 +2,19 @@ import React from "react";
 import LanguageToggle from "../LanguageToggle/LanguageToggle";
 import "./Header.scss";
 
-function Header({language, onLanguageChange}) {
+function Header({language, onLanguageChange, logo, link}) {
 
   return (
     <div>
       <header className="AppHeader">
         <a
-          href="https://www.gastronaut.ai/"
+          href={link}
           target="_blank"
           rel="noopener noreferrer"
         >
           <img
             className="AppHeader__logo"
-            src="/poweredByGastronaut.png"
+            src={logo}
             alt="logo"
           />
         </a>

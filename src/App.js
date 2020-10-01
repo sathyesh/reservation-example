@@ -11,10 +11,11 @@ import { restaurantApi }  from "./services/api";
 
 function App() {
   const [language, setLanguage] = useState("de");
+  const restaurantID = "schillingroofbar";
   const [ response, isLoading, error ] = useFetch({
     api: restaurantApi,
     method: "get",
-    url: "schillingroofbar",
+    url: restaurantID,
   });
   const [data, setData] = useState([]);
 
@@ -25,26 +26,26 @@ function App() {
     }
   }, [response]);
   
-  const handleLanguageChange = (language) => {
-    console.log("Language", language);
-    setLanguage(language);
-  }
-
+  const handleLanguageChange = (language) => setLanguage(language);
+  
   return (
     <>
       {isLoading && <CircularProgress />}
-      {error && error.name && error.name === "Error" && (
+      {error && error.message != null && (
         <Alert severity="error">{error.message}</Alert>
       )}
       <Container maxWidth="sm">
         <Typography
           component="div"
           className="App"
-          style={{ backgroundColor: "#fff", height: "100vh" }}
         >
           {/* Header Section Start */}
           <div className="App__Header">
-            <Header language={ language } onLanguageChange={handleLanguageChange} />
+            <Header 
+              language={ language } 
+              onLanguageChange={handleLanguageChange} 
+              link={data.link}
+              logo={data.logo} />
           </div>
           {/* Header Section End */}
           {/* Content Section Start*/}
@@ -52,27 +53,30 @@ function App() {
             <ImageHolder src={data.image} />
           </div>
           <div className="App__Grid">
-            <Grid container spacing={1}>
-              <Grid item xs={4}>
-                Grid1
+            <Grid container spacing={0}>
+              <Grid item xs={4} >
+                Grid1Grid1Grid1Grid1Grid1Grid1Grid1Grid1
               </Grid>
               <Grid item xs={4}>
                 Grid1
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={4} style={{textAlign:"center"}}>
                 <Button variant="outlined" color="primary">
                   Primary
                 </Button>
               </Grid>
             </Grid>
-            <Grid container spacing={1}>
+            <div>
+             ...
+            </div>
+            <Grid container spacing={0}>
               <Grid item xs={4}>
                 Grid1
               </Grid>
               <Grid item xs={4}>
                 Grid1
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={4} style={{textAlign:"center"}}>
                 <Button variant="contained" color="primary">
                   Primary
                 </Button>

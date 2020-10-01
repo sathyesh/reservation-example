@@ -3,6 +3,9 @@
 .App {
   display: flex;
   flex-direction: column;
+  background-color: "#fff";
+  height: 100vh;
+
   &__ {
     &Header {
       padding-top: 1rem;
