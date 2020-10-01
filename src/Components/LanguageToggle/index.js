@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Popover, List, ListItem, ListItemText } from "@material-ui/core";
-import { German, English } from "./Flags/Flags";
+import { German, English } from "./Flags";
 
 const LANGUAGES = [
   { id: "en", title: "English" },
@@ -17,7 +17,7 @@ const TRANSFORM_ORIGIN = {
   horizontal: "right",
 };
 
-const LanguageToggle = ({ language, setlanguage }) => {
+const LanguageToggle = ({ language, setLanguage }) => {
   const [open, setopen] = useState(false);
   const anchorEl = useRef();
   const popoverRef = useRef();
@@ -27,7 +27,7 @@ const LanguageToggle = ({ language, setlanguage }) => {
   const closePopover = () => setopen(false);
 
   const handleClick = (id) => () => {
-    setlanguage(id);
+    setLanguage(id);
     closePopover();
   };
 

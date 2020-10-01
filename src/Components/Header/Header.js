@@ -1,8 +1,7 @@
 import React from "react";
-import LanguageToggle from "../LanguageToggle/LanguageToggle";
 import "./Header.scss";
 
-function Header({language, onLanguageChange, logo, link}) {
+function Header({logo, link, children}) {
 
   return (
     <div>
@@ -19,7 +18,7 @@ function Header({language, onLanguageChange, logo, link}) {
           />
         </a>
         <div className="AppHeader__languageToggle">
-          <LanguageToggle language={language} setlanguage={onLanguageChange} />
+         {children}
         </div>
       </header>
     </div>

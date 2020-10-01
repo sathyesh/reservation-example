@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from "react";
 import "./Styles/App.scss";
-import Header from "./Components/Header/Header";
-import Footer from "./Components/Footer/Footer";
-import ImageHolder from "./Components/ImageHolder/ImageHolder";
-import { Container, Typography, Grid, Button,CircularProgress } from "@material-ui/core";
-import Alert from '@material-ui/lab/Alert';
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import ImageHolder from "./components/ImageHolder/ImageHolder";
+import {
+  Container,
+  Typography,
+  Grid,
+  Button,
+  CircularProgress,
+} from "@material-ui/core";
+import Alert from "@material-ui/lab/Alert";
 import useFetch from "./hooks/useFetch";
-import { restaurantApi }  from "./services/api";
-
+import { restaurantApi } from "./services/api";
+import LanguageToggle from "./components/LanguageToggle";
 
 function App() {
   const [language, setLanguage] = useState("de");
   const restaurantID = "schillingroofbar";
-  const [ response, isLoading, error ] = useFetch({
+  const [response, isLoading, error] = useFetch({
     api: restaurantApi,
     method: "get",
     url: restaurantID,
@@ -25,9 +31,8 @@ function App() {
       setData(response);
     }
   }, [response]);
-  
-  const handleLanguageChange = (language) => setLanguage(language);
-  
+
+
   return (
     <>
       {isLoading && <CircularProgress />}
@@ -35,17 +40,18 @@ function App() {
         <Alert severity="error">{error.message}</Alert>
       )}
       <Container maxWidth="sm">
-        <Typography
-          component="div"
-          className="App"
-        >
+        <Typography component="div" className="App">
           {/* Header Section Start */}
           <div className="App__Header">
-            <Header 
-              language={ language } 
-              onLanguageChange={handleLanguageChange} 
+            <Header
               link={data.link}
-              logo={data.logo} />
+              logo={data.logo}
+            >
+              <LanguageToggle 
+                language={language}
+                setLanguage={setLanguage}
+               />
+            </Header>
           </div>
           {/* Header Section End */}
           {/* Content Section Start*/}
@@ -54,21 +60,19 @@ function App() {
           </div>
           <div className="App__Grid">
             <Grid container spacing={0}>
-              <Grid item xs={4} >
+              <Grid item xs={4}>
                 Grid1Grid1Grid1Grid1Grid1Grid1Grid1Grid1
               </Grid>
               <Grid item xs={4}>
                 Grid1
               </Grid>
-              <Grid item xs={4} style={{textAlign:"center"}}>
+              <Grid item xs={4} style={{ textAlign: "center" }}>
                 <Button variant="outlined" color="primary">
                   Primary
                 </Button>
               </Grid>
             </Grid>
-            <div>
-             ...
-            </div>
+            <div>...</div>
             <Grid container spacing={0}>
               <Grid item xs={4}>
                 Grid1
@@ -76,7 +80,7 @@ function App() {
               <Grid item xs={4}>
                 Grid1
               </Grid>
-              <Grid item xs={4} style={{textAlign:"center"}}>
+              <Grid item xs={4} style={{ textAlign: "center" }}>
                 <Button variant="contained" color="primary">
                   Primary
                 </Button>
