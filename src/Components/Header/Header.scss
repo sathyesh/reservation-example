@@ -9,6 +9,7 @@ $header-logo-default-height: 45px;
     &logo {
       width: auto;
       height: $header-logo-default-height;
+      object-fit: cover;
     }
     &languageToggle {
       margin-left: auto;
