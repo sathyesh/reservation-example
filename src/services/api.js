@@ -11,5 +11,5 @@ export const restaurantApi = axios.create({
 // GET https://api.gastronaut.ai/v02/language/codeTest/:language
 // Currently Available: de, en
 export const languageApi = axios.create({
-  baseURL: "https://api.gastronaut.ai/codeTest/schillingroofbar"
+  baseURL: "https://api.gastronaut.ai/v02/language/codeTest/"
 });
