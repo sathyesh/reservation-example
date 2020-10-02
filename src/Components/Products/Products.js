@@ -19,7 +19,7 @@ function Products({ data, restaurantId }) {
       };
     });
     setDataWithLink(newDataWithLink);
-  }, [data]);
+  }, [data,LINKFORBUTTON]);
 
   return (
     <>
