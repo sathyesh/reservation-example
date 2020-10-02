@@ -16,7 +16,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./theme";
 import "./Styles/App.scss";
 //Language Translations
-import {LanguageContextProvider} from "./hooks/LanguageContext";
+import { LanguageContextProvider } from "./hooks/LanguageContext";
 
 function App() {
   const [language, setLanguage] = useState("de");
@@ -26,7 +26,7 @@ function App() {
   });
 
   const restaurantID = "neo-heidelberg";
-  const [apiResponse, isApiLoading, apiError] = useFetch({
+  const [apiResponse, apiError, isApiLoading] = useFetch({
     api: restaurantApi,
     method: "get",
     url: restaurantID,
@@ -51,6 +51,7 @@ function App() {
     if (apiResponse !== null) {
       setApiData(apiResponse);
     }
+    console.log("ApiError", apiError);
   }, [apiResponse]);
 
   useEffect(() => {
@@ -61,15 +62,18 @@ function App() {
 
   return (
     <ThemeProvider theme={theme(restaurantTheme)}>
-      {apiError && apiError.message != null && (
-        <Alert severity="error">{apiError.message}</Alert>
-      )}
-      {isApiLoading ? (
-        <CircularProgress />
-      ) : (
-        <>
-          <Container maxWidth="sm">
-            <Typography component="div" className="App">
+      <Container maxWidth="xs">
+        <Typography component="div" className="App">
+          {apiError && apiError.message ? (
+            <div className="App__Error">
+              <Alert severity="error">{apiError.message}</Alert>
+            </div>
+          ) : isApiLoading ? (
+            <div className="App__Loader">
+              <CircularProgress />
+            </div>
+          ) : (
+            <>
               {/* Header Section Start */}
               <div className="App__Header">
                 <Header link={apiData.link} logo={apiData.logo}>
@@ -97,10 +101,10 @@ function App() {
                 <Footer />
               </div>
               {/* Footer Section End */}
-            </Typography>
-          </Container>
-        </>
-      )}
+            </>
+          )}
+        </Typography>
+      </Container>
     </ThemeProvider>
   );
 }

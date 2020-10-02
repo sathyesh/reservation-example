@@ -22,10 +22,10 @@ function Reservation({ regularHours }) {
     <div>
       {datesTime.map((dateTime, index) => (
         <Grid container spacing={0} key={'Reservation'+index}>
-          <Grid item xs={4}>
+          <Grid item xs={5}>
             {dateTime.date}
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={3}>
             {dateTime.time}
           </Grid>
           <Grid item xs={4} style={{ textAlign: "center" }}>
