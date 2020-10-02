@@ -1,22 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Grid, Button, Link } from "@material-ui/core";
-import {getDateForIndex} from "../../helpers/Util";
+import { getDateForIndex } from "../../helpers/Util";
+import { LanguageContext } from "../../hooks/LanguageContext";
+
 
 function Reservation({ regularHours }) {
   const [datesTime, setDatesTime] = useState([]);
+  const languageTranslation = useContext(LanguageContext);
 
   useEffect(() => {
-    const newDatesTime = regularHours && regularHours.map((hour, index) => ({
-      date: getDateForIndex(index),
-      time: hour,
-    }));
-    setDatesTime(newDatesTime?newDatesTime:[]);
+    const newDatesTime =
+      regularHours &&
+      regularHours.map((hour, index) => ({
+        date: getDateForIndex(index),
+        time: hour,
+      }));
+    setDatesTime(newDatesTime ? newDatesTime : []);
   }, [regularHours]);
 
   return (
     <div>
-      {datesTime.map((dateTime) => (
-        <Grid container spacing={0}>
+      {datesTime.map((dateTime, index) => (
+        <Grid container spacing={0} key={'Reservation'+index}>
           <Grid item xs={4}>
             {dateTime.date}
           </Grid>
@@ -32,13 +37,13 @@ function Reservation({ regularHours }) {
                 rel="noopener noreferrer"
                 underline="none"
               >
-                Reserve
+                {languageTranslation !==null?languageTranslation["reservationButtonSmall"]:"Reserve"}
               </Link>
             </Button>
           </Grid>
         </Grid>
       ))}
-    </div> 
+    </div>
   );
 }
 
