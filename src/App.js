@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import ImageHolder from "./components/ImageHolder/ImageHolder";
-import DateReservation from "./components/Reservation/Reservation";
+import Reservation from "./components/Reservation/Reservation";
+import Events from "./components/Events/Events";
 import Products from "./components/Products/Products";
 import LanguageToggle from "./components/LanguageToggle";
 //Material UI components
@@ -90,8 +91,9 @@ function App() {
               </div>
               <LanguageContextProvider language={language} languageData={languageData}>
                 <div className="App__Grid">
-                  <DateReservation regularHours={apiData.regularHours} />
+                  <Reservation regularHours={apiData.regularHours} />
                   <div>...</div>
+                  <Events events={apiData.events} />
                 </div>
                 <Products data={apiData.products} />
               </LanguageContextProvider>

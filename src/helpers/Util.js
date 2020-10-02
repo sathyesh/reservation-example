@@ -9,6 +9,13 @@ export const getTranslatedDateForIndex = (index, languageData) => {
   } else if(index === 1){
     return languageData.date.tomorrow || "Tomorrow";
   } else {  
-    return weekDayText+" "+givenDate.format(' DD.MM.YY') || givenDate.format(' DD.MM.YY');
+    return weekDayText+" "+givenDate.format(' DD.MM.YY') || givenDate.format('DD.MM.YY');
   }
+};
+
+export const getTranslatedDateForDate = (date, languageData) => {
+    const momentDate = moment(date, 'YYYY-MM-DD');
+    const weekDay = momentDate.isoWeekday();
+    const weekDayText = languageData.date.weekdays[weekDay-1] || null;
+    return weekDayText+" "+momentDate.format(' DD.MM.YY') || momentDate.format('DD.MM.YY');;
 };
