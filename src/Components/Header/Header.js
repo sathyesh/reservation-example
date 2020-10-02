@@ -18,6 +18,7 @@ function Header({logo, link, children}) {
             className="AppHeader__logo"
             src={logo}
             alt="logo"
+            loading="lazy"
           />
         </Link>
         <div className="AppHeader__languageToggle">

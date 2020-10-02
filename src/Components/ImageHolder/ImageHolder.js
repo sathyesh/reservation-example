@@ -5,7 +5,7 @@ function ImageHolder({src}) {
     
     return (
         <div className="image-holder">
-         <img className="image-holder__img" src={src} alt="Restaturant"></img>
+         <img className="image-holder__img" loading="lazy" src={src} alt="Restaturant"></img>
         </div>
     )
 }
