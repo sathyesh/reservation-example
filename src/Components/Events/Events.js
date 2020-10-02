@@ -10,36 +10,40 @@ function Events({ events }) {
   return (
     <div>
       {events &&
-        events.map((event, index) => (
+        events.map((eventItem, index) => (
           <Box my=".6rem" key={"Events" + index}>
             <Grid container spacing={0} alignItems="center" justify="center">
               <Grid item xs={5}>
                 {languageData !== null
-                  ? getTranslatedDateForDate(event.date, languageData)
+                  ? getTranslatedDateForDate(eventItem.date, languageData)
                   : ""}
               </Grid>
               <Grid item xs={3} align="center">
-                {event.title}
+                {eventItem.title}
               </Grid>
               <Grid item xs={4} align="right">
-                <Button
-                  variant="contained"
-                  color="primary"
-                  size="small"
-                  style={{ textTransform: "capitalize" }}
-                >
-                  <Link
-                    href="#"
-                    color="inherit"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    underline="none"
+                {eventItem.available ? (
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    size="small"
+                    style={{ textTransform: "capitalize" }}
                   >
-                    {languageData !== null
-                      ? languageData["ticketButton"]
-                      : "Buy Ticket"}
-                  </Link>
-                </Button>
+                    <Link
+                      href={eventItem.link}
+                      color="inherit"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      underline="none"
+                    >
+                      {languageData !== null
+                        ? languageData["ticketButton"]
+                        : "Buy Ticket"}
+                    </Link>
+                  </Button>
+                ) : (
+                  "Closed"
+                )}
               </Grid>
             </Grid>
           </Box>

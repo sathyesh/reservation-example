@@ -19,3 +19,8 @@ export const getTranslatedDateForDate = (date, languageData) => {
     const weekDayText = languageData.date.weekdays[weekDay-1] || null;
     return weekDayText+" "+momentDate.format(' DD.MM.YY') || momentDate.format('DD.MM.YY');;
 };
+
+export const getDateForIndex = (index) => {
+  const givenDate = moment().add(index, 'days');
+  return givenDate.format('YYYY-MM-DD');
+}

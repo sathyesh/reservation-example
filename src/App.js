@@ -91,7 +91,7 @@ function App() {
               </div>
               <LanguageContextProvider language={language} languageData={languageData}>
                 <div className="App__Grid">
-                  <Reservation regularHours={apiData.regularHours} />
+                  <Reservation regularHours={apiData.regularHours} restaurantId={restaurantId} />
                   <div>...</div>
                   <Events events={apiData.events} />
                 </div>

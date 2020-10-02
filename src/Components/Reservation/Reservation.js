@@ -1,16 +1,17 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { Box, Grid, Button, Link } from "@material-ui/core";
-import { getTranslatedDateForIndex } from "../../helpers/Util";
+import { getTranslatedDateForIndex, getDateForIndex } from "../../helpers/Util";
 import { LanguageContext } from "../../hooks/LanguageContext";
 
-function Reservation({ regularHours }) {
+function Reservation({ regularHours, restaurantId }) {
   const { languageData } = useContext(LanguageContext);
+  const RESERVATION_LINK = `https://r.gastronaut.ai/${restaurantId}`;
 
   return (
     <div>
       {regularHours &&
         regularHours.map((hour, index) => (
-          <Box my=".6rem" key={"Reservation" + index}>
+          <Box mt=".6rem" key={"Reservation" + index}>
             <Grid container spacing={0} alignItems="center" justify="center">
               <Grid item xs={5}>
                 {languageData !== null
@@ -32,7 +33,7 @@ function Reservation({ regularHours }) {
                   style={{ textTransform: "capitalize" }}
                 >
                   <Link
-                    href="#"
+                    href= {`${RESERVATION_LINK}?`+getDateForIndex(index)}
                     color="inherit"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -40,7 +41,7 @@ function Reservation({ regularHours }) {
                   >
                     {languageData !== null
                       ? languageData["reservationButtonSmall"]
-                      : "Reserve"}
+                      : "Book A Table"}
                   </Link>
                 </Button>
               </Grid>
