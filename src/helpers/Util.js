@@ -1,11 +1,14 @@
 const moment = require('moment');
 
-export const getDateForIndex = (index) => {
+export const getTranslatedDateForIndex = (index, languageData) => {
+  const givenDate = moment().add(index, 'days');
+  const weekDay = givenDate.isoWeekday();
+  const weekDayText = languageData.date.weekdays[weekDay-1] || null;
   if(index === 0){
-    return "Today";
-  }else if(index === 1){
-    return "Tomorrow";
-  } else {
-    return moment().add(index, 'days').format('ddd. [the] DD.MM.YY');
+    return languageData.date.today || "Today";
+  } else if(index === 1){
+    return languageData.date.tomorrow || "Tomorrow";
+  } else {  
+    return weekDayText+" "+givenDate.format(' DD.MM.YY') || givenDate.format(' DD.MM.YY');
   }
 };

@@ -7,7 +7,7 @@ const theme = (colorPalette) => createMuiTheme({
       main: colorPalette.primaryColor,
       contrastText: colorPalette.contrastText
     }
-  }
+  },
 });
 
 export default theme;

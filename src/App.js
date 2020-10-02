@@ -6,7 +6,7 @@ import DateReservation from "./components/Reservation/Reservation";
 import Products from "./components/Products/Products";
 import LanguageToggle from "./components/LanguageToggle";
 //Material UI components
-import { Container, Typography, CircularProgress } from "@material-ui/core";
+import { Container, Typography, CircularProgress, CssBaseline } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 //Backend Services
 import { restaurantApi, languageApi } from "./services/api";
@@ -31,7 +31,7 @@ function App() {
     method: "get",
     url: restaurantID,
   });
-  const [apiData, setApiData] = useState({});
+  const [apiData, setApiData] = useState(null);
 
   const [languageResponse] = useFetch({
     api: languageApi,
@@ -51,7 +51,6 @@ function App() {
     if (apiResponse !== null) {
       setApiData(apiResponse);
     }
-    console.log("ApiError", apiError);
   }, [apiResponse]);
 
   useEffect(() => {
@@ -62,6 +61,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme(restaurantTheme)}>
+      <CssBaseline />
       <Container maxWidth="xs">
         <Typography component="div" className="App">
           {apiError && apiError.message ? (
@@ -88,7 +88,7 @@ function App() {
               <div className="App__ImageHolder">
                 <ImageHolder src={apiData.image} />
               </div>
-              <LanguageContextProvider language={languageData}>
+              <LanguageContextProvider language={language} languageData={languageData}>
                 <div className="App__Grid">
                   <DateReservation regularHours={apiData.regularHours} />
                   <div>...</div>

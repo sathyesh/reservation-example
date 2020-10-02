@@ -3,7 +3,8 @@ import { Grid, Button, Link } from "@material-ui/core";
 import { LanguageContext } from "../../hooks/LanguageContext";
 
 function Products({ data }) {
-  const languageTranslation = useContext(LanguageContext);
+    const {languageData} = useContext(LanguageContext);
+
   return (
     <>
       {data &&
@@ -14,7 +15,7 @@ function Products({ data }) {
                 <Button
                   variant="contained"
                   color="primary"
-                  style={{ minWidth: "100%" }}
+                  style={{ minWidth: "100%"}}
                 >
                   <Link
                     href="#"
@@ -23,7 +24,7 @@ function Products({ data }) {
                     rel="noopener noreferrer"
                     underline="none"
                   >
-                    {languageTranslation !==null?languageTranslation[product+"Button"]:product}
+                    {languageData !==null?languageData[product+"Button"]:product}
                   </Link>
                 </Button>
               </Grid>
