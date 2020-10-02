@@ -26,11 +26,11 @@ function App() {
     contrastText: "#000000",
   });
 
-  const restaurantID = "neo-heidelberg";
+  const restaurantId = "neo-heidelberg";
   const [apiResponse, apiError, isApiLoading] = useFetch({
     api: restaurantApi,
     method: "get",
-    url: restaurantID,
+    url: restaurantId,
   });
   const [apiData, setApiData] = useState(null);
 
@@ -62,7 +62,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme(restaurantTheme)}>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <Container maxWidth="xs">
         <Typography component="div" className="App">
           {apiError && apiError.message ? (
@@ -95,7 +95,7 @@ function App() {
                   <div>...</div>
                   <Events events={apiData.events} />
                 </div>
-                <Products data={apiData.products} />
+                <Products data={apiData.products} restaurantId={restaurantId} />
               </LanguageContextProvider>
               {/* Content Section End*/}
               {/* Footer Section Start */}

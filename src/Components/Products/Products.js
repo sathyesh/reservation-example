@@ -1,30 +1,48 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Grid, Button, Link } from "@material-ui/core";
 import { LanguageContext } from "../../hooks/LanguageContext";
 
-function Products({ data }) {
-    const {languageData} = useContext(LanguageContext);
+function Products({ data, restaurantId }) {
+  const { languageData } = useContext(LanguageContext);
+  const [dataWithLink, setDataWithLink] = useState([]);
+  const LINKFORBUTTON = {
+    reservation: `https://r.gastronaut.ai/${restaurantId}`,
+    voucher: `https://v.gastronaut.ai/${restaurantId}`,
+    menu: `https://menu.gastronaut.ai/${restaurantId}`,
+  };
+
+  useEffect(() => {
+    const newDataWithLink = data.map((item) => {
+      return {
+        product: item,
+        link: LINKFORBUTTON[item],
+      };
+    });
+    setDataWithLink(newDataWithLink);
+  }, [data]);
 
   return (
     <>
-      {data &&
-        data.map((product, index) => (
+      {dataWithLink.length > 0 &&
+        dataWithLink.map((data, index) => (
           <div className="App__Button" key={"product" + index}>
             <Grid container spacing={0}>
               <Grid item xs={12}>
                 <Button
                   variant="contained"
                   color="primary"
-                  style={{ minWidth: "100%"}}
+                  style={{ minWidth: "100%" }}
                 >
                   <Link
-                    href="#"
+                    href={data.link}
                     color="inherit"
                     target="_blank"
                     rel="noopener noreferrer"
                     underline="none"
                   >
-                    {languageData !==null?languageData[product+"Button"]:product}
+                    {languageData !== null
+                      ? languageData[data.product + "Button"]
+                      : data.product}
                   </Link>
                 </Button>
               </Grid>
