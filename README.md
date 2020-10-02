@@ -1,5 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This project contains example implementation of hotel reservation. This project created using React Hooks, Material UI and SCSS (BEM).
+
+
 ## Available Scripts
 
 In the project directory, you can run:
