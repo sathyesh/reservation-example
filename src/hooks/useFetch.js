@@ -15,7 +15,9 @@ const useFetch = ({ api, method, url, data = null, config = null }) => {
           setError(err);
         })
         .finally(() => {
-          setIsLoading(false);
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 250);
         });
     };
 
