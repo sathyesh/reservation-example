@@ -5,13 +5,13 @@ import { LanguageContext } from "../../hooks/LanguageContext";
 function Products({ data, restaurantId }) {
   const { languageData } = useContext(LanguageContext);
   const [dataWithLink, setDataWithLink] = useState([]);
-  const LINKFORBUTTON = {
-    reservation: `https://r.gastronaut.ai/${restaurantId}`,
-    voucher: `https://v.gastronaut.ai/${restaurantId}`,
-    menu: `https://menu.gastronaut.ai/${restaurantId}`,
-  };
-
+  
   useEffect(() => {
+    const LINKFORBUTTON = {
+      reservation: `https://r.gastronaut.ai/${restaurantId}`,
+      voucher: `https://v.gastronaut.ai/${restaurantId}`,
+      menu: `https://menu.gastronaut.ai/${restaurantId}`,
+    };
     const newDataWithLink = data.map((item) => {
       return {
         product: item,
@@ -19,7 +19,7 @@ function Products({ data, restaurantId }) {
       };
     });
     setDataWithLink(newDataWithLink);
-  }, [data,LINKFORBUTTON]);
+  },[setDataWithLink,data,restaurantId]);
 
   return (
     <>

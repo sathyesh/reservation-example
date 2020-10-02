@@ -5,7 +5,6 @@ import { LanguageContext } from "../../hooks/LanguageContext";
 
 function Events({ events }) {
   const { languageData } = useContext(LanguageContext);
-  console.log(events);
 
   return (
     <div>

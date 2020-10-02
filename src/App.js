@@ -7,7 +7,7 @@ import Events from "./components/Events/Events";
 import Products from "./components/Products/Products";
 import LanguageToggle from "./components/LanguageToggle";
 //Material UI components
-import { Container, Typography, CircularProgress, CssBaseline } from "@material-ui/core";
+import { Container, Typography, CircularProgress } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 //Backend Services
 import { restaurantApi, languageApi } from "./services/api";
