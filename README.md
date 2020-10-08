@@ -1,6 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This project contains example implementation of hotel reservation. This project created using React Hooks, Material UI and SCSS (BEM). Currenly this project supports only mobile view.
+This project contains example implementation of hotel reservation which is done as part of coding task (https://github.com/gastronaut-gmbh/fullStackChallenge). As they have mentioned that I can use it for my portfolio, I have uploaded it in my GitHub account.
+
+This project created using React Hooks, Material UI and SCSS (BEM). Currenly this project supports only mobile view.
 
 
 ## Available Scripts
