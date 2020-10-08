@@ -2,6 +2,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This project contains example implementation of hotel reservation. This project created using React Hooks, Material UI and SCSS (BEM). Currenly this project supports only mobile view.
 
+**TODO Improvements**:
+
+1) Unit and integration testing has to added using Jest
+2) Local translation has to be added in case of failure in Backend
+3) Move the constant strings to constants.js
+4) Adjust the font size according to mobile viewport (Responsive font)
+5) Error boundary logic has to be added
+6) Customizable button size has to be added in theme
+7) Environment configuration has to added for dev and prod
+
 
 ## Available Scripts
 
